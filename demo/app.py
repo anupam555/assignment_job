@@ -89,15 +89,34 @@
 
 from flask import Flask, jsonify
 import psycopg2
+import os
 
 app = Flask(__name__)
+
+DB_HOST = os.environ.get('DB_HOST')
+DB_USER = os.environ.get('DB_USER')
+DB_PASSWORD = os.environ.get('DB_PASSWORD')
+DB_DATABASE = os.environ.get('DB_DATABASE')
+
+# Check if any of the environment variables are missing
+if None in [DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE]:
+    raise ValueError("Please set the environment variables for database connection.")
+
 
 # Replace these values with your PostgreSQL database credentials
 db_config_postgres = {
     'host': 'dpg-cmomal6d3nmc739mj0qg-a.oregon-postgres.render.com',
     'user': 'user',
-    'password': 'eCLDVvK3pvG4dYlN7UzN3vAJcRLYYAgs',
+    # 'password': 'eCLDVvK3pvG4dYlN7UzN3vAJcRLYYAgs',
+    'password': DB_PASSWORD,
     'database': 'your_postgres_database',
+}
+
+db_config_postgres = {
+    'host': DB_HOST,
+    'user': DB_USER,
+    'password': DB_PASSWORD,
+    'database': DB_DATABASE,
 }
 
 # Function to establish a database connection
