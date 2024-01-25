@@ -14,7 +14,7 @@
 # def get_db_connection():
 #     return mysql.connector.connect(**db_config)
 
-# # Function to create fake data
+# # Function to create fake data hsoting - aws 
 # def generate_fake_data(num_entries):
 #     fake = Faker()
 #     fake_data = []
@@ -63,9 +63,9 @@ from datetime import datetime, timedelta
 
 # Replace these values with your PostgreSQL database credentials
 db_config_postgres = {
-    'host': 'localhost',
-    'user': 'your_postgres_user',
-    'password': 'your_postgres_password',
+    'host': 'dpg-cmomal6d3nmc739mj0qg-a.oregon-postgres.render.com',
+    'user': 'user',
+    'password': 'eCLDVvK3pvG4dYlN7UzN3vAJcRLYYAgs',
     'database': 'your_postgres_database',
 }
 
@@ -107,7 +107,7 @@ def insert_fake_data(fake_data):
 
 if __name__ == '__main__':
     # Specify the number of fake entries to generate
-    num_entries = 9800
+    num_entries = 9898
 
     # Generate fake data
     fake_data = generate_fake_data(num_entries)
@@ -116,3 +116,4 @@ if __name__ == '__main__':
     insert_fake_data(fake_data)
 
     print(f'{num_entries} fake entries inserted into the Leaderboard table.')
+# postgres://user:eCLDVvK3pvG4dYlN7UzN3vAJcRLYYAgs@dpg-cmomal6d3nmc739mj0qg-a.oregon-postgres.render.com/your_postgres_database

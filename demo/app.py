@@ -94,9 +94,9 @@ app = Flask(__name__)
 
 # Replace these values with your PostgreSQL database credentials
 db_config_postgres = {
-    'host': 'localhost',
-    'user': 'your_postgres_user',
-    'password': 'your_postgres_password',
+    'host': 'dpg-cmomal6d3nmc739mj0qg-a.oregon-postgres.render.com',
+    'user': 'user',
+    'password': 'eCLDVvK3pvG4dYlN7UzN3vAJcRLYYAgs',
     'database': 'your_postgres_database',
 }
 
@@ -108,7 +108,7 @@ def get_db_connection():
 @app.route('/leaderboard/current_week', methods=['GET'])
 def current_week_leaderboard():
     connection = get_db_connection()
-    cursor = connection.cursor(dictionary=True)
+    cursor = connection.cursor()
 
     query = '''
     SELECT UID, Name, Score, Country, TimeStamp
@@ -130,7 +130,7 @@ def current_week_leaderboard():
 @app.route('/leaderboard/last_week/<country_code>', methods=['GET'])
 def last_week_leaderboard(country_code):
     connection = get_db_connection()
-    cursor = connection.cursor(dictionary=True)
+    cursor = connection.cursor()
 
     query = f'''
     SELECT UID, Name, Score, Country, TimeStamp
@@ -153,7 +153,7 @@ def last_week_leaderboard(country_code):
 @app.route('/user/rank/<user_id>', methods=['GET'])
 def user_rank(user_id):
     connection = get_db_connection()
-    cursor = connection.cursor(dictionary=True)
+    cursor = connection.cursor()
 
     query = f'''
     SELECT UID, Name, Score, Country, TimeStamp,
@@ -170,5 +170,6 @@ def user_rank(user_id):
 
     return jsonify(result)
 
-if __name__ == '__main__':
+def create_app():
     app.run(debug=True)
+    return app

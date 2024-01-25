@@ -34,9 +34,9 @@ import psycopg2
 
 # Replace these values with your PostgreSQL database credentials
 db_config_postgres = {
-    'host': 'localhost',
-    'user': 'your_postgres_user',
-    'password': 'your_postgres_password',
+    'host': 'dpg-cmomal6d3nmc739mj0qg-a.oregon-postgres.render.com',
+    'user': 'user',
+    'password': 'eCLDVvK3pvG4dYlN7UzN3vAJcRLYYAgs',
     'database': 'your_postgres_database',
 }
 
