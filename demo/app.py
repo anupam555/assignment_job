@@ -190,5 +190,5 @@ def user_rank(user_id):
     return jsonify(result)
 
 def create_app():
-    app.run(debug=False)
+    # app.run(debug=False)
     return app
